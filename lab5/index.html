@@ -3,143 +3,198 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Лабораторна робота №5 — Проектування системи класів (система онлайн-курсів)</title>
+  <title>Лабораторна робота №5 — Проектування системи класів (ООП)</title>
   <link rel="stylesheet" href="../styles.css">
   <style>
-    .back-link {
-      display: inline-block;
-      color: #fff;
+    .page-nav {
+      padding: 24px 0 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .back-btn {
+      color: var(--accent-emerald);
       text-decoration: none;
+      font-weight: 600;
       font-size: 14px;
-      margin-bottom: 12px;
-      opacity: 0.9;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
     }
-    .back-link:hover {
-      text-decoration: underline;
-      opacity: 1;
+    .back-btn:hover {
+      color: var(--accent-teal);
     }
-    .variant-card {
-      background: #fff;
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
+    .page-header-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header-box::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--accent-gradient);
+    }
+    .page-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+    .page-subtitle {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+    .content-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
       padding: 24px;
       margin-bottom: 24px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
     }
-    .variant-card h2 {
-      margin-top: 0;
-      margin-bottom: 14px;
+    .content-box h2 {
       font-size: 18px;
-      color: #312783;
-      border-bottom: 1px solid #e2e8f0;
-      padding-bottom: 8px;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
-    .class-grid {
+    .content-box h2::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-emerald);
+    }
+    .classes-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 16px;
       margin-top: 14px;
     }
-    .class-card {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 6px;
-      padding: 14px;
+    .class-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      transition: border-color 0.2s;
     }
-    .class-title {
+    .class-item:hover {
+      border-color: rgba(16, 185, 129, 0.4);
+    }
+    .class-header {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+      font-size: 14px;
       font-weight: 700;
-      color: #312783;
+      color: var(--accent-emerald);
       margin-bottom: 6px;
-      font-family: monospace;
-      font-size: 15px;
     }
-    .terminal-window {
-      background: #1e293b;
-      color: #38bdf8;
-      border-radius: 8px;
+    .class-desc {
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+    .terminal-container {
+      background: #090d16;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
       overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      margin-top: 14px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
       font-size: 13px;
-      margin-top: 15px;
     }
-    .terminal-header {
+    .terminal-top {
       background: #0f172a;
       padding: 8px 14px;
       display: flex;
       align-items: center;
       gap: 6px;
+      border-bottom: 1px solid var(--border-color);
     }
-    .dot {
+    .term-dot {
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      display: inline-block;
     }
-    .dot-red { background: #ef4444; }
-    .dot-yellow { background: #f59e0b; }
-    .dot-green { background: #10b981; }
+    .term-dot-r { background: #ef4444; }
+    .term-dot-y { background: #f59e0b; }
+    .term-dot-g { background: #10b981; }
     .terminal-body {
       padding: 16px;
       line-height: 1.6;
+      color: #38bdf8;
       white-space: pre-wrap;
-      color: #f1f5f9;
       max-height: 350px;
       overflow-y: auto;
     }
   </style>
 </head>
 <body>
-  <header class="header">
-    <div class="container">
-      <div style="display: flex; justify-content: center; gap: 16px; margin-bottom: 12px;">
-        <a href="../index.html" class="back-link" style="margin-bottom: 0;">← На головну</a>
-        <a href="https://github.com/scarecrow118/it_college_web_course/tree/main/lab5" target="_blank" rel="noopener noreferrer" class="back-link" style="margin-bottom: 0;">Код на GitHub ↗</a>
-      </div>
-      <h1>Лабораторна робота №5</h1>
-      <p class="subtitle">Проектування системи класів (система онлайн-курсів)</p>
-      <p class="author">Студент: <strong>Чупіль Юрій</strong> | Група: <strong>КН-310</strong></p>
-    </div>
-  </header>
 
-  <main class="container">
-    <section class="variant-card">
-      <h2>Архітектура класів (ООП)</h2>
-      <p>У роботі реалізовано об'єктно-орієнтовану модель системи онлайн-курсів за принципами спадкування (ES6-модулі):</p>
-      <div class="class-grid">
-        <div class="class-card">
-          <div class="class-title">Person</div>
-          <p style="font-size: 13px; color: #64748b;">Базовий клас особи: конструктор з <code>name</code> та метод <code>getInfo()</code>.</p>
+  <div class="container">
+    <div class="page-nav">
+      <a href="../index.html" class="back-btn">← Повернутися до списку робіт</a>
+      <a href="https://github.com/scarecrow118/it_college_web_course/tree/main/lab5" target="_blank" rel="noopener noreferrer" class="btn-code">
+        <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        <span>Код на GitHub</span>
+      </a>
+    </div>
+
+    <header class="page-header-box">
+      <span class="lab-chip" style="margin-bottom: 8px; display: inline-block;">LAB 05</span>
+      <h1 class="page-title">Проектування системи класів (ООП)</h1>
+      <p class="page-subtitle">Студент: <strong>Чупіль Юрій</strong> | Група: <strong>КН-310</strong></p>
+    </header>
+
+    <section class="content-box">
+      <h2>Архітектура системи класів</h2>
+      <p style="font-size: 14px; color: var(--text-secondary);">Модульна система управління онлайн-курсами на базі стандартів ES6 Modules:</p>
+      <div class="classes-grid">
+        <div class="class-item">
+          <div class="class-header">Person</div>
+          <p class="class-desc">Базовий суперклас для сутностей користувачів. Конструктор із <code>name</code> та метод <code>getInfo()</code>.</p>
         </div>
-        <div class="class-card">
-          <div class="class-title">Teacher extends Person</div>
-          <p style="font-size: 13px; color: #64748b;">Викладач: масив курсів, методи <code>addCourse()</code> та розширений <code>getInfo()</code>.</p>
+        <div class="class-item">
+          <div class="class-header">Teacher extends Person</div>
+          <p class="class-desc">Сутність викладача: список закріплених курсів, методи <code>addCourse()</code> та розширений <code>getInfo()</code>.</p>
         </div>
-        <div class="class-card">
-          <div class="class-title">Student extends Person</div>
-          <p style="font-size: 13px; color: #64748b;">Студент: масив курсів, метод перегляду <code>viewCourses()</code>.</p>
+        <div class="class-item">
+          <div class="class-header">Student extends Person</div>
+          <p class="class-desc">Сутність студента: список обраних курсів, метод перегляду записів <code>viewCourses()</code>.</p>
         </div>
-        <div class="class-card">
-          <div class="class-title">Course</div>
-          <p style="font-size: 13px; color: #64748b;">Курс: назва, список зарахованих студентів <code>addStudent()</code>, <code>getStudents()</code>.</p>
+        <div class="class-item">
+          <div class="class-header">Course</div>
+          <p class="class-desc">Курс: назва, список зарахованих студентів, методи <code>addStudent()</code> та <code>getStudents()</code>.</p>
         </div>
       </div>
     </section>
 
-    <section class="variant-card">
-      <h2>Консоль виводу (Live Execution)</h2>
-      <p style="color: #64748b; font-size: 14px; margin-bottom: 10px;">Результат виконання ES-модуля <code>index.js</code>:</p>
-      <div class="terminal-window">
-        <div class="terminal-header">
-          <span class="dot dot-red"></span>
-          <span class="dot dot-yellow"></span>
-          <span class="dot dot-green"></span>
-          <span style="color: #94a3b8; font-size: 11px; margin-left: 8px;">Console Output</span>
+    <section class="content-box">
+      <h2>Виконання модулів (Console Live Output)</h2>
+      <div class="terminal-container">
+        <div class="terminal-top">
+          <span class="term-dot term-dot-r"></span>
+          <span class="term-dot term-dot-y"></span>
+          <span class="term-dot term-dot-g"></span>
+          <span style="color: var(--text-muted); font-size: 11px; margin-left: 6px;">stdout</span>
         </div>
         <div class="terminal-body" id="consoleOutput"></div>
       </div>
     </section>
-  </main>
+  </div>
 
   <footer class="footer">
     <div class="container">
@@ -148,7 +203,7 @@
   </footer>
 
   <a href="https://github.com/scarecrow118/it_college_web_course/tree/main/lab5" target="_blank" rel="noopener noreferrer" class="github-fab" title="Вихідний код на GitHub">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
     <span>Код на GitHub</span>
   </a>
 

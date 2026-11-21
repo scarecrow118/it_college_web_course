@@ -3,193 +3,240 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Лабораторна робота №10 — Створення серверного застосунку на Node.js</title>
+  <title>Лабораторна робота №10 — Node.js REST API Сервер</title>
   <link rel="stylesheet" href="../styles.css">
   <style>
-    .back-link {
-      display: inline-block;
-      color: #fff;
-      text-decoration: none;
-      font-size: 14px;
-      margin-bottom: 12px;
-      opacity: 0.9;
-    }
-    .back-link:hover {
-      text-decoration: underline;
-      opacity: 1;
-    }
-    .variant-card {
-      background: #fff;
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
-      padding: 24px;
-      margin-bottom: 24px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-    }
-    .variant-card h2 {
-      margin-top: 0;
-      margin-bottom: 14px;
-      font-size: 18px;
-      color: #312783;
-      border-bottom: 1px solid #e2e8f0;
-      padding-bottom: 8px;
-    }
-    .endpoint-badge {
-      display: inline-block;
-      padding: 4px 8px;
-      border-radius: 4px;
-      font-weight: 700;
-      font-size: 12px;
-      margin-right: 8px;
-    }
-    .badge-get { background: #e0f2fe; color: #0284c7; }
-    .badge-options { background: #fef3c7; color: #d97706; }
-    .badge-status { background: #dcfce7; color: #16a34a; }
-    .code-block {
-      background: #1e293b;
-      color: #f8fafc;
-      padding: 16px;
-      border-radius: 6px;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 13px;
-      overflow-x: auto;
-      margin: 12px 0;
-      line-height: 1.5;
-    }
-    .endpoint-row {
+    .page-nav {
+      padding: 24px 0 12px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 12px;
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 6px;
-      margin-bottom: 10px;
+      gap: 16px;
       flex-wrap: wrap;
-      gap: 10px;
     }
-    .endpoint-name {
-      font-family: monospace;
+    .back-btn {
+      color: var(--accent-emerald);
+      text-decoration: none;
       font-weight: 600;
-      color: #1e293b;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
     }
-    .btn-test {
-      background: #312783;
-      color: #fff;
-      border: none;
-      padding: 6px 14px;
+    .back-btn:hover {
+      color: var(--accent-teal);
+    }
+    .page-header-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header-box::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--accent-gradient);
+    }
+    .page-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+    .page-subtitle {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+    .content-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .content-box h2 {
+      font-size: 18px;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .content-box h2::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-emerald);
+    }
+    .endpoint-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .endpoint-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .method-badge {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 3px 8px;
       border-radius: 4px;
-      font-size: 13px;
+    }
+    .method-get {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--accent-emerald);
+      border: 1px solid var(--tag-border);
+    }
+    .method-opt {
+      background: rgba(245, 158, 11, 0.15);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+    .endpoint-path {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+      font-size: 14px;
+      color: #f1f5f9;
       font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s;
     }
-    .btn-test:hover {
-      background: #231b66;
+    .endpoint-desc {
+      font-size: 13px;
+      color: var(--text-muted);
     }
-    .api-preview {
-      margin-top: 15px;
-      display: none;
-    }
-    .api-preview.active {
-      display: block;
-    }
-    .instructions-list {
-      padding-left: 20px;
+    .code-dark {
+      background: #090d16;
+      border: 1px solid var(--border-color);
+      color: #e2e8f0;
+      padding: 16px;
+      border-radius: var(--radius-md);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+      font-size: 13px;
+      line-height: 1.6;
+      overflow-x: auto;
       margin: 12px 0;
     }
-    .instructions-list li {
-      margin-bottom: 6px;
-      font-size: 15px;
+    .preview-box {
+      margin-top: 16px;
+      display: none;
+    }
+    .preview-box.active {
+      display: block;
+    }
+    .spec-list {
+      padding-left: 20px;
+      margin: 12px 0;
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+    .spec-list li {
+      margin-bottom: 8px;
     }
   </style>
 </head>
 <body>
-  <header class="header">
-    <div class="container">
-      <div style="display: flex; justify-content: center; gap: 16px; margin-bottom: 12px;">
-        <a href="../index.html" class="back-link" style="margin-bottom: 0;">← На головну</a>
-        <a href="https://github.com/scarecrow118/it_college_web_course/tree/main/lab10" target="_blank" rel="noopener noreferrer" class="back-link" style="margin-bottom: 0;">Код на GitHub ↗</a>
-      </div>
-      <h1>Лабораторна робота №10</h1>
-      <p class="subtitle">Створення серверного застосунку на Node.js</p>
-      <p class="author">Студент: <strong>Чупіль Юрій</strong> | Група: <strong>КН-310</strong> (ID #23)</p>
-    </div>
-  </header>
 
-  <main class="container">
-    <section class="variant-card">
-      <h2>1. Опис серверного застосунку</h2>
-      <p>
-        У цій роботі реалізовано автономний HTTP-сервер на базі вбудованого модуля <strong>Node.js <code>http</code></strong> з використанням стандартів сучасних ES-модулів (<code>"type": "module"</code>).
-        Сервер налаштовано для надання REST API даних для Angular та клієнтських веб-застосунків.
+  <div class="container">
+    <div class="page-nav">
+      <a href="../index.html" class="back-btn">← Повернутися до списку робіт</a>
+      <a href="https://github.com/scarecrow118/it_college_web_course/tree/main/lab10" target="_blank" rel="noopener noreferrer" class="btn-code">
+        <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        <span>Код на GitHub</span>
+      </a>
+    </div>
+
+    <header class="page-header-box">
+      <span class="lab-chip" style="margin-bottom: 8px; display: inline-block;">LAB 10</span>
+      <h1 class="page-title">Створення серверного застосунку на Node.js</h1>
+      <p class="page-subtitle">Студент: <strong>Чупіль Юрій</strong> | Група: <strong>КН-310</strong> (userId: 23)</p>
+    </header>
+
+    <section class="content-box">
+      <h2>Опис серверної архітектури</h2>
+      <p style="font-size: 14px; color: var(--text-secondary);">
+        HTTP REST API сервер реалізовано на вбудованому модулі <strong>node:http</strong> без використання сторонніх залежностей. Конфігурація проєкту налаштована на стандарт ES-модулів (<code>"type": "module"</code>).
       </p>
-      <ul class="instructions-list">
-        <li><strong>Event Loop та неблокуюче I/O:</strong> асинхронна архітектура обробки клієнтських запитів.</li>
-        <li><strong>CORS політика:</strong> додано обов'язкові заголовки <code>Access-Control-Allow-Origin: *</code>, дозволено методи GET, POST, OPTIONS, PUT, DELETE та обробку preflight запитів (HTTP 204).</li>
-        <li><strong>Власні модулі:</strong> збереження та експорт даних організовано у файлі <code>data.js</code> відповідно до інтерфейсу <code>Todo</code> (userId: 23).</li>
+      <ul class="spec-list">
+        <li><strong>CORS політика:</strong> налаштовано заголовки <code>Access-Control-Allow-Origin: *</code> для взаємодії з Angular та клієнтськими застосунками.</li>
+        <li><strong>Preflight OPTIONS:</strong> запити перевірки CORS успішно завершуються зі статусом HTTP 204 No Content.</li>
+        <li><strong>Експорт моделі:</strong> файл <code>data.js</code> містить масив об'єктів Todo з прив'язкою до ідентифікатора студента (<code>userId: 23</code>).</li>
       </ul>
     </section>
 
-    <section class="variant-card">
-      <h2>2. Маршрутизація сервера (API Endpoints)</h2>
-      
-      <div class="endpoint-row">
-        <div>
-          <span class="endpoint-badge badge-get">GET</span>
-          <span class="endpoint-name">/</span>
-          <span style="color: #64748b; font-size: 13px; margin-left: 8px;">— перевірка працездатності (HTML статус)</span>
+    <section class="content-box">
+      <h2>Маршрутизація сервера (API Endpoints)</h2>
+
+      <div class="endpoint-card">
+        <div class="endpoint-left">
+          <span class="method-badge method-get">GET</span>
+          <div>
+            <div class="endpoint-path">/</div>
+            <div class="endpoint-desc">HTML статус працездатності сервера</div>
+          </div>
         </div>
-        <button class="btn-test" onclick="testEndpoint('root')">Переглянути</button>
+        <button class="btn-code" onclick="testApi('root')">Переглянути відповідь</button>
       </div>
 
-      <div class="endpoint-row">
-        <div>
-          <span class="endpoint-badge badge-get">GET</span>
-          <span class="endpoint-name">/api/v1/todoItem</span>
-          <span style="color: #64748b; font-size: 13px; margin-left: 8px;">— список завдань у форматі JSON</span>
+      <div class="endpoint-card">
+        <div class="endpoint-left">
+          <span class="method-badge method-get">GET</span>
+          <div>
+            <div class="endpoint-path">/api/v1/todoItem</div>
+            <div class="endpoint-desc">JSON-список задач (userId: 23)</div>
+          </div>
         </div>
-        <button class="btn-test" onclick="testEndpoint('todos')">Отримати JSON</button>
+        <button class="btn-run" onclick="testApi('todos')">Отримати JSON</button>
       </div>
 
-      <div class="endpoint-row">
-        <div>
-          <span class="endpoint-badge badge-options">OPTIONS</span>
-          <span class="endpoint-name">/api/v1/todoItem</span>
-          <span style="color: #64748b; font-size: 13px; margin-left: 8px;">— обробка попередніх preflight CORS-запитів (HTTP 204)</span>
+      <div class="endpoint-card">
+        <div class="endpoint-left">
+          <span class="method-badge method-opt">OPTIONS</span>
+          <div>
+            <div class="endpoint-path">/api/v1/todoItem</div>
+            <div class="endpoint-desc">CORS Preflight відповідь сервера</div>
+          </div>
         </div>
-        <span class="endpoint-badge badge-status">HTTP 204</span>
+        <span class="method-badge" style="background: rgba(16, 185, 129, 0.1); color: var(--accent-emerald);">HTTP 204</span>
       </div>
 
-      <div id="previewBox" class="api-preview">
-        <h4 style="margin-bottom: 6px; color: #312783;">Результат відповіді сервера:</h4>
-        <pre class="code-block" id="outputJson"></pre>
+      <div id="previewBox" class="preview-box">
+        <h4 style="margin-bottom: 8px; color: var(--accent-emerald); font-size: 14px;">Відповідь сервера:</h4>
+        <pre class="code-dark" id="outputJson"></pre>
       </div>
     </section>
 
-    <section class="variant-card">
-      <h2>3. Інструкція із запуску та деплою</h2>
-      <p><strong>Локальний запуск:</strong></p>
-      <div class="code-block"># Перехід у директорію lab10
+    <section class="content-box">
+      <h2>Інструкція запуску бекенду</h2>
+      <p style="font-size: 14px; color: var(--text-secondary);">Для запуску сервера в локальному середовищі:</p>
+      <div class="code-dark"># Перейти у директорію lab10
 cd lab10
 
 # Запуск сервера
 npm start
 
-# Запуск у режимі автоматичного перезавантаження (Node.js 18+)
+# Запуск у режимі автоматичного перезапуску при зміні файлів
 node --watch server.js</div>
-
-      <p style="margin-top: 16px;"><strong>Параметри для розгортання на Render.com:</strong></p>
-      <ul class="instructions-list">
-        <li><strong>Service Type:</strong> Web Service (Build and deploy from a Git repository)</li>
-        <li><strong>Root Directory:</strong> <code>lab10</code></li>
-        <li><strong>Runtime:</strong> Node</li>
-        <li><strong>Build Command:</strong> <code>npm install</code> (або залишити пустим)</li>
-        <li><strong>Start Command:</strong> <code>node server.js</code></li>
-        <li><strong>Port:</strong> налаштовано через <code>process.env.PORT || 3000</code></li>
-      </ul>
     </section>
-  </main>
+  </div>
 
   <footer class="footer">
     <div class="container">
@@ -198,7 +245,7 @@ node --watch server.js</div>
   </footer>
 
   <a href="https://github.com/scarecrow118/it_college_web_course/tree/main/lab10" target="_blank" rel="noopener noreferrer" class="github-fab" title="Вихідний код на GitHub">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
     <span>Код на GitHub</span>
   </a>
 
@@ -226,13 +273,13 @@ node --watch server.js</div>
       }
     ];
 
-    function testEndpoint(type) {
+    function testApi(type) {
       const box = document.getElementById('previewBox');
       const out = document.getElementById('outputJson');
       box.classList.add('active');
 
       if (type === 'root') {
-        out.textContent = `<!DOCTYPE html>\n<html>\n  <h1>Мій перший сервер на Node.js працює!</h1>\n  <p>Лабораторна робота №10 — Чупіль Юрій (КН-310)</p>\n</html>`;
+        out.textContent = `<!DOCTYPE html>\n<html>\n  <h1>Мій перший сервер на Node.js працює!</h1>\n</html>`;
       } else if (type === 'todos') {
         out.textContent = JSON.stringify(sampleTodos, null, 2);
       }

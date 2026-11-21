@@ -3,155 +3,318 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Лабораторні роботи — Чупіль Юрій (КН-310)</title>
+  <title>Портфоліо лабораторних робіт — Чупіль Юрій (КН-310)</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header class="header">
+
+  <!-- Hero Profile Header -->
+  <header class="hero">
     <div class="container">
-      <h1>Лабораторні роботи з Web-програмування</h1>
-      <p class="subtitle">ВСП «Фаховий коледж інформаційних технологій НУ "Львівська політехніка"»</p>
-      <p class="author">Студент: <strong>Чупіль Юрій</strong> | Група: <strong>КН-310</strong></p>
+      <div class="hero-profile">
+        <div class="profile-info">
+          <div class="avatar-badge">ЮЧ</div>
+          <div class="profile-text">
+            <h1>Юрій Чупіль</h1>
+            <div class="profile-meta">
+              <span class="badge-group">КН-310</span>
+              <span>ВСП «ФКІТ НУ "Львівська політехніка"»</span>
+              <span style="color: var(--text-muted);">•</span>
+              <span>Web-програмування</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-box">
+            <span class="stat-num">8</span>
+            <span class="stat-label">Робіт здано</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num">100%</span>
+            <span class="stat-label">Прогрес</span>
+          </div>
+        </div>
+      </div>
     </div>
   </header>
 
+  <!-- Main Grid Section -->
   <main class="container">
-    <section class="labs-section">
-      <h2>Список робіт</h2>
-      <ul class="labs-list">
-        <li class="lab-item disabled">
-          <div class="lab-info">
-            <span class="lab-num">Лабораторна робота №1</span>
-            <span class="lab-title">—</span>
-          </div>
-        </li>
+    <div class="section-head">
+      <h2 class="section-title">Лабораторні роботи курсу</h2>
+      <a href="https://github.com/scarecrow118/it_college_web_course" target="_blank" rel="noopener noreferrer" class="btn-code">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        <span>GitHub Repo</span>
+      </a>
+    </div>
 
-        <li class="lab-item disabled">
-          <div class="lab-info">
-            <span class="lab-num">Лабораторна робота №2</span>
-            <span class="lab-title">—</span>
+    <div class="labs-grid">
+      <!-- Lab 1 (Disabled) -->
+      <article class="lab-card disabled">
+        <div class="card-top">
+          <div class="card-header-row">
+            <span class="lab-chip">LAB 01</span>
+            <div class="status-indicator">
+              <span class="status-dot idle"></span>
+              <span>Архів</span>
+            </div>
           </div>
-        </li>
+          <h3 class="lab-title">Основи мови розмітки HTML</h3>
+          <p class="lab-desc">Структура веб-документа, теги розмітки та базові атрибути.</p>
+        </div>
+      </article>
 
-        <li class="lab-item active">
-          <div class="lab-info">
-            <span class="lab-num">Лабораторна робота №3</span>
-            <span class="lab-title">Верстка веб-сторінки з grid та responsive breakpoints. Застосування SCSS</span>
+      <!-- Lab 2 (Disabled) -->
+      <article class="lab-card disabled">
+        <div class="card-top">
+          <div class="card-header-row">
+            <span class="lab-chip">LAB 02</span>
+            <div class="status-indicator">
+              <span class="status-dot idle"></span>
+              <span>Архів</span>
+            </div>
           </div>
-          <div class="lab-actions">
-            <a href="lab3/index.html" class="btn-open">Відкрити роботу →</a>
-            <a href="https://github.com/scarecrow118/it_college_web_course/tree/main/lab3" target="_blank" rel="noopener noreferrer" class="btn-github" title="Вихідний код на GitHub">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-              <span>GitHub</span>
-            </a>
-          </div>
-        </li>
+          <h3 class="lab-title">Каскадні таблиці стилів CSS</h3>
+          <p class="lab-desc">Селектори, блокова модель (box model) та блокова верстка.</p>
+        </div>
+      </article>
 
-        <li class="lab-item active">
-          <div class="lab-info">
-            <span class="lab-num">Лабораторна робота №4</span>
-            <span class="lab-title">Робота з функціями у JavaScript</span>
+      <!-- Lab 3 -->
+      <article class="lab-card">
+        <div class="card-top">
+          <div class="card-header-row">
+            <span class="lab-chip">LAB 03</span>
+            <div class="status-indicator">
+              <span class="status-dot"></span>
+              <span>Виконано</span>
+            </div>
           </div>
-          <div class="lab-actions">
-            <a href="lab4/index.html" class="btn-open">Відкрити роботу →</a>
-            <a href="https://github.com/scarecrow118/it_college_web_course/tree/main/lab4" target="_blank" rel="noopener noreferrer" class="btn-github" title="Вихідний код на GitHub">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-              <span>GitHub</span>
-            </a>
+          <h3 class="lab-title">Адаптивна верстка з CSS Grid & SCSS</h3>
+          <p class="lab-desc">Відтворення адаптивного новинного блоку порталу Львівської політехніки з брейкпоінтами під телефони, планшети та десктоп.</p>
+          <div class="tech-tags">
+            <span class="tech-tag">SCSS</span>
+            <span class="tech-tag">CSS Grid</span>
+            <span class="tech-tag">Mixins</span>
+            <span class="tech-tag">Responsive</span>
           </div>
-        </li>
+        </div>
+        <div class="card-actions">
+          <a href="lab3/index.html" class="btn-run">Переглянути →</a>
+          <a href="https://github.com/scarecrow118/it_college_web_course/tree/main/lab3" target="_blank" rel="noopener noreferrer" class="btn-code" title="Код на GitHub">
+            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            <span>Код</span>
+          </a>
+        </div>
+      </article>
 
-        <li class="lab-item active">
-          <div class="lab-info">
-            <span class="lab-num">Лабораторна робота №5</span>
-            <span class="lab-title">Проектування системи класів (система онлайн-курсів)</span>
+      <!-- Lab 4 -->
+      <article class="lab-card">
+        <div class="card-top">
+          <div class="card-header-row">
+            <span class="lab-chip">LAB 04</span>
+            <div class="status-indicator">
+              <span class="status-dot"></span>
+              <span>Виконано</span>
+            </div>
           </div>
-          <div class="lab-actions">
-            <a href="lab5/index.html" class="btn-open">Відкрити роботу →</a>
-            <a href="https://github.com/scarecrow118/it_college_web_course/tree/main/lab5" target="_blank" rel="noopener noreferrer" class="btn-github" title="Вихідний код на GitHub">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-              <span>GitHub</span>
-            </a>
+          <h3 class="lab-title">Робота з функціями у JavaScript</h3>
+          <p class="lab-desc">Стрілкові функції, рекурсивні обчислення гармонійного ряду, замикання (Closures) та колбеки над колекціями Set.</p>
+          <div class="tech-tags">
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">Closures</span>
+            <span class="tech-tag">Recursion</span>
+            <span class="tech-tag">Callbacks</span>
           </div>
-        </li>
+        </div>
+        <div class="card-actions">
+          <a href="lab4/index.html" class="btn-run">Переглянути →</a>
+          <a href="https://github.com/scarecrow118/it_college_web_course/tree/main/lab4" target="_blank" rel="noopener noreferrer" class="btn-code" title="Код на GitHub">
+            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            <span>Код</span>
+          </a>
+        </div>
+      </article>
 
-        <li class="lab-item active">
-          <div class="lab-info">
-            <span class="lab-num">Лабораторна робота №6</span>
-            <span class="lab-title">Інтерактивна сторінка: додавання елементів у DOM, робота з подіями</span>
+      <!-- Lab 5 -->
+      <article class="lab-card">
+        <div class="card-top">
+          <div class="card-header-row">
+            <span class="lab-chip">LAB 05</span>
+            <div class="status-indicator">
+              <span class="status-dot"></span>
+              <span>Виконано</span>
+            </div>
           </div>
-          <div class="lab-actions">
-            <a href="lab6/index.html" class="btn-open">Відкрити роботу →</a>
-            <a href="https://github.com/scarecrow118/it_college_web_course/tree/main/lab6" target="_blank" rel="noopener noreferrer" class="btn-github" title="Вихідний код на GitHub">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-              <span>GitHub</span>
-            </a>
+          <h3 class="lab-title">Проектування системи класів (ООП)</h3>
+          <p class="lab-desc">Модульна система онлайн-курсів на класах ES6: Person, Teacher, Student та Course з реалізацією спадкування.</p>
+          <div class="tech-tags">
+            <span class="tech-tag">OOP</span>
+            <span class="tech-tag">ES6 Modules</span>
+            <span class="tech-tag">Inheritance</span>
+            <span class="tech-tag">Classes</span>
           </div>
-        </li>
+        </div>
+        <div class="card-actions">
+          <a href="lab5/index.html" class="btn-run">Переглянути →</a>
+          <a href="https://github.com/scarecrow118/it_college_web_course/tree/main/lab5" target="_blank" rel="noopener noreferrer" class="btn-code" title="Код на GitHub">
+            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            <span>Код</span>
+          </a>
+        </div>
+      </article>
 
-        <li class="lab-item active">
-          <div class="lab-info">
-            <span class="lab-num">Лабораторна робота №7</span>
-            <span class="lab-title">Завантаження даних з публічного API та відображення на сторінці</span>
+      <!-- Lab 6 -->
+      <article class="lab-card">
+        <div class="card-top">
+          <div class="card-header-row">
+            <span class="lab-chip">LAB 06</span>
+            <div class="status-indicator">
+              <span class="status-dot"></span>
+              <span>Виконано</span>
+            </div>
           </div>
-          <div class="lab-actions">
-            <a href="lab7/index.html" class="btn-open">Відкрити роботу →</a>
-            <a href="https://github.com/scarecrow118/it_college_web_course/tree/main/lab7" target="_blank" rel="noopener noreferrer" class="btn-github" title="Вихідний код на GitHub">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-              <span>GitHub</span>
-            </a>
+          <h3 class="lab-title">Інтерактивна робота з DOM та подіями</h3>
+          <p class="lab-desc">Todo-застосунок з динамічним створенням завдань через HTML5 Template, фільтрацією, видаленням та зміною статусу.</p>
+          <div class="tech-tags">
+            <span class="tech-tag">DOM API</span>
+            <span class="tech-tag">Events</span>
+            <span class="tech-tag">Templates</span>
+            <span class="tech-tag">UI State</span>
           </div>
-        </li>
+        </div>
+        <div class="card-actions">
+          <a href="lab6/index.html" class="btn-run">Переглянути →</a>
+          <a href="https://github.com/scarecrow118/it_college_web_course/tree/main/lab6" target="_blank" rel="noopener noreferrer" class="btn-code" title="Код на GitHub">
+            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            <span>Код</span>
+          </a>
+        </div>
+      </article>
 
-        <li class="lab-item active">
-          <div class="lab-info">
-            <span class="lab-num">Лабораторна робота №8</span>
-            <span class="lab-title">Робота з API-даними на TypeScript</span>
+      <!-- Lab 7 -->
+      <article class="lab-card">
+        <div class="card-top">
+          <div class="card-header-row">
+            <span class="lab-chip">LAB 07</span>
+            <div class="status-indicator">
+              <span class="status-dot"></span>
+              <span>Виконано</span>
+            </div>
           </div>
-          <div class="lab-actions">
-            <a href="lab8/index.html" class="btn-open">Відкрити роботу →</a>
-            <a href="https://github.com/scarecrow118/it_college_web_course/tree/main/lab8" target="_blank" rel="noopener noreferrer" class="btn-github" title="Вихідний код на GitHub">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-              <span>GitHub</span>
-            </a>
+          <h3 class="lab-title">Завантаження даних із REST API</h3>
+          <p class="lab-desc">Асинхронний обмін даними (Fetch API, Promises, async/await) з MockAPI сервером для збереження стану завдань.</p>
+          <div class="tech-tags">
+            <span class="tech-tag">Fetch API</span>
+            <span class="tech-tag">REST API</span>
+            <span class="tech-tag">Async/Await</span>
+            <span class="tech-tag">CRUD</span>
           </div>
-        </li>
+        </div>
+        <div class="card-actions">
+          <a href="lab7/index.html" class="btn-run">Переглянути →</a>
+          <a href="https://github.com/scarecrow118/it_college_web_course/tree/main/lab7" target="_blank" rel="noopener noreferrer" class="btn-code" title="Код на GitHub">
+            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            <span>Код</span>
+          </a>
+        </div>
+      </article>
 
-        <li class="lab-item active">
-          <div class="lab-info">
-            <span class="lab-num">Лабораторна робота №9</span>
-            <span class="lab-title">Створення простого Angular-застосунку (Todo list)</span>
+      <!-- Lab 8 -->
+      <article class="lab-card">
+        <div class="card-top">
+          <div class="card-header-row">
+            <span class="lab-chip">LAB 08</span>
+            <div class="status-indicator">
+              <span class="status-dot"></span>
+              <span>Виконано</span>
+            </div>
           </div>
-          <div class="lab-actions">
-            <a href="lab9/dist/lab9/browser/index.html" class="btn-open">Відкрити роботу →</a>
-            <a href="https://github.com/scarecrow118/it_college_web_course/tree/main/lab9" target="_blank" rel="noopener noreferrer" class="btn-github" title="Вихідний код на GitHub">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-              <span>GitHub</span>
-            </a>
+          <h3 class="lab-title">TypeScript, Webpack & Репозиторій</h3>
+          <p class="lab-desc">Типізація моделей даних, паттерн Repository для ізоляції роботи з API, збірка модулів через Webpack та scss-loader.</p>
+          <div class="tech-tags">
+            <span class="tech-tag">TypeScript</span>
+            <span class="tech-tag">Webpack</span>
+            <span class="tech-tag">Repository</span>
+            <span class="tech-tag">Build</span>
           </div>
-        </li>
+        </div>
+        <div class="card-actions">
+          <a href="lab8/index.html" class="btn-run">Переглянути →</a>
+          <a href="https://github.com/scarecrow118/it_college_web_course/tree/main/lab8" target="_blank" rel="noopener noreferrer" class="btn-code" title="Код на GitHub">
+            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            <span>Код</span>
+          </a>
+        </div>
+      </article>
 
-        <li class="lab-item active">
-          <div class="lab-info">
-            <span class="lab-num">Лабораторна робота №10</span>
-            <span class="lab-title">Створення серверного застосунку на Node.js</span>
+      <!-- Lab 9 -->
+      <article class="lab-card">
+        <div class="card-top">
+          <div class="card-header-row">
+            <span class="lab-chip">LAB 09</span>
+            <div class="status-indicator">
+              <span class="status-dot"></span>
+              <span>Виконано</span>
+            </div>
           </div>
-          <div class="lab-actions">
-            <a href="lab10/index.html" class="btn-open">Відкрити роботу →</a>
-            <a href="https://github.com/scarecrow118/it_college_web_course/tree/main/lab10" target="_blank" rel="noopener noreferrer" class="btn-github" title="Вихідний код на GitHub">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-              <span>GitHub</span>
-            </a>
+          <h3 class="lab-title">Angular 21 SPA Застосунок</h3>
+          <p class="lab-desc">Сучасний Single Page Application на Angular 21: реактивні Signals, TodoService, компоненти, реактивний стан та стилізація.</p>
+          <div class="tech-tags">
+            <span class="tech-tag">Angular 21</span>
+            <span class="tech-tag">Signals</span>
+            <span class="tech-tag">Components</span>
+            <span class="tech-tag">SPA</span>
           </div>
-        </li>
-      </ul>
-    </section>
+        </div>
+        <div class="card-actions">
+          <a href="lab9/dist/lab9/browser/index.html" class="btn-run">Переглянути →</a>
+          <a href="https://github.com/scarecrow118/it_college_web_course/tree/main/lab9" target="_blank" rel="noopener noreferrer" class="btn-code" title="Код на GitHub">
+            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            <span>Код</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Lab 10 -->
+      <article class="lab-card">
+        <div class="card-top">
+          <div class="card-header-row">
+            <span class="lab-chip">LAB 10</span>
+            <div class="status-indicator">
+              <span class="status-dot"></span>
+              <span>Виконано</span>
+            </div>
+          </div>
+          <h3 class="lab-title">Серверний застосунок на Node.js</h3>
+          <p class="lab-desc">Автономний HTTP REST API сервер на модулі node:http, заголовки CORS, preflight OPTIONS (204) та роутинг для todoItem (userId: 23).</p>
+          <div class="tech-tags">
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">HTTP Server</span>
+            <span class="tech-tag">CORS</span>
+            <span class="tech-tag">REST API</span>
+          </div>
+        </div>
+        <div class="card-actions">
+          <a href="lab10/index.html" class="btn-run">Переглянути →</a>
+          <a href="https://github.com/scarecrow118/it_college_web_course/tree/main/lab10" target="_blank" rel="noopener noreferrer" class="btn-code" title="Код на GitHub">
+            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            <span>Код</span>
+          </a>
+        </div>
+      </article>
+    </div>
   </main>
 
+  <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>© 2026 Чупіль Юрій (КН-310). <a href="https://github.com/scarecrow118/it_college_web_course" target="_blank" rel="noopener noreferrer">Репозиторій GitHub</a></p>
+      <p>© 2026 Чупіль Юрій (КН-310). <a href="https://github.com/scarecrow118/it_college_web_course" target="_blank" rel="noopener noreferrer">Репозиторій на GitHub</a></p>
     </div>
   </footer>
+
 </body>
 </html>
